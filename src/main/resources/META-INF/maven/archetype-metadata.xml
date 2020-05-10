@@ -49,7 +49,6 @@
       <directory>.clojure/scripts</directory>
       <includes>
         <include>build.clj</include>
-        <include>repl.bat</include>
         <include>test.clj</include>
       </includes>
     </fileSet>
