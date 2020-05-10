@@ -39,12 +39,6 @@
         <include>**/*</include>
       </includes>
     </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>src/site</directory>
-      <includes>
-        <include>**/*.xml</include>
-      </includes>
-    </fileSet>
     <fileSet encoding="UTF-8">
       <directory>.clojure/scripts</directory>
       <includes>
