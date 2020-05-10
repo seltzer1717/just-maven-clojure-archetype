@@ -42,7 +42,7 @@
     <fileSet encoding="UTF-8">
       <directory>.clojure/scripts</directory>
       <includes>
-        <include>build.clj</include>
+        <include>compile.clj</include>
         <include>test.clj</include>
       </includes>
     </fileSet>
