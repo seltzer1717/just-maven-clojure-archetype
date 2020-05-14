@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cloud.seltzer1717.clojure</groupId>
-  <artifactId>just-maven-archetype</artifactId>
+  <artifactId>just-maven-clojure-archetype</artifactId>
   <version>0.1-RELEASE</version>
   <packaging>maven-archetype</packaging>
 
@@ -35,5 +35,5 @@
     </pluginManagement>
   </build>
 
-  <url>http://www.seltzer1717.cloud/just-testing-archetype</url>
+  <url>http://www.seltzer1717.cloud</url>
 </project>

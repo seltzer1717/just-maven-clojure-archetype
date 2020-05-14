@@ -13,7 +13,7 @@
 (def source-path
   "Path representing source directory"
   (-> (System/getProperties)
-      (get "maven.source.dir")
+      (get "clojurescript.source.dir")
       (File.)
       (.toPath)))
 
@@ -28,7 +28,8 @@
            (let [file-path   (.toFile path)
                  string-path (.toString path)]
              (if (.isFile file-path)
-                 (if (.endsWith string-path ".clj")
+                 (if (or (.endsWith string-path ".clj")
+                         (.endsWith string-path ".cljc"))
                      (let [relative-path         (.relativize source-path path)
                            relative-string       (.toString relative-path)
                            dot-clj-index         (.indexOf relative-string ".clj")
