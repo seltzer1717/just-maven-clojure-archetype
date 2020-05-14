@@ -7,8 +7,8 @@
   <version>0.1-RELEASE</version>
   <packaging>maven-archetype</packaging>
 
-  <name>cloud.seltzer1717.clojure:just-maven-archetype</name>
-  <description>An archetype for Clojure projects that require only Maven</description>
+  <name>cloud.seltzer1717.clojure:just-maven-clojure-archetype</name>
+  <description>An archetype for Clojure projects that requires only Maven</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
