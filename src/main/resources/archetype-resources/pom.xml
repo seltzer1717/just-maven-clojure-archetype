@@ -96,7 +96,7 @@
                 </systemProperty>
                 <systemProperty>
                   <key>maven.source.dir</key>
-                  <value>${project.basedir}/${clojure.source.dir}</value>
+                  <value>${project.build.sourceDirectory}</value>
                 </systemProperty>
               </systemProperties>
               <additionalClasspathElements>

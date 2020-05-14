@@ -13,7 +13,7 @@
 (def source-path
   "Path representing source directory"
   (-> (System/getProperties)
-      (get "clojurescript.source.dir")
+      (get "maven.source.dir")
       (File.)
       (.toPath)))
 
