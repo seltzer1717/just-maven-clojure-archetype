@@ -22,22 +22,6 @@
       <artifactId>clojure</artifactId>
       <version>${clojure.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>clojurescript</artifactId>
-      <version>${clojurescript.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>cljsjs</groupId>
-      <artifactId>react-dom</artifactId>
-      <version>${react.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 
   <repositories>
