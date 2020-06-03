@@ -9,12 +9,42 @@
 
   <name>cloud.seltzer1717.clojure:just-maven-clojure-archetype</name>
   <description>An archetype for Clojure projects that requires only Maven</description>
+  <url>http://www.seltzer1717.cloud</url>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Jon Seltzer</name>
+      <email>seltzer1717@gmail.com</email>
+      <organization>Seltzer1717</organization>
+      <organizationUrl>http://www.seltzer1717.cloud</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/seltzer1717/just-maven-clojure-archetype.git</connection>
+    <url>https://github.com/seltzer1717/just-maven-clojure-archetype</url>
+    <developerConnection>scm:git:https://github.com/seltzer1717/just-maven-clojure-archetype.git</developerConnection>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
+
+  <distributionManagement>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
   <build>
     <extensions>
@@ -33,7 +63,34 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9.1</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      </plugins>
   </build>
 
-  <url>http://www.seltzer1717.cloud</url>
 </project>
