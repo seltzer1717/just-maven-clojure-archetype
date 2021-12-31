@@ -8,6 +8,9 @@ An archetype, for Clojure projects, that requires only Maven.
   <version>0.2-RELEASE</version>
 ```
 
+## License
+https://www.eclipse.org/legal/epl-v10.html
+
 # Why another Clojure build tool?
 - This isn't another build tool. It's a Maven archetype designed to put you in control.
   - Maven archetypes are just project stereotypes that make it easy for developers to create a new projects, patterned for a specific purpose.
