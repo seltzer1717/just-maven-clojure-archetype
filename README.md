@@ -179,7 +179,7 @@ Navigate to your artifactId folder (e.g. cranberry-fizzy-juice)
   - Compiles source main code
   - Compiles source test code
   - Runs tests
-  - installs (does nothing - see AWS Lambda archetype (coming soon) for creating output artifacts)
+  - installs (installs library jar in your local .m2 repository)
   - Can also run 'quietly' `mvn -q clean install`
 ## Too Many Key Strokes
 - Create shell scripts
