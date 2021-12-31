@@ -6,4 +6,4 @@
             [${package}.core :as core]))
 
 (test/deftest bartest
-  (test/is (= "bar" (core/foo))))
+  (test/is (= "blah" (core/reverso "halb"))))

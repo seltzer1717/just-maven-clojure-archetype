@@ -1,0 +1,1 @@
+Needed for integration test due to issue with archetype integration test reference project issues.

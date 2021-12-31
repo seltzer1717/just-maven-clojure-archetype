@@ -1,3 +1,6 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8" ?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -9,11 +12,16 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <clojure.version>1.10.1</clojure.version>
-    <react.version>16.2.0-3</react.version>
-    <junit.version>4.11</junit.version>
+    <maven.compiler.source>${maven-compiler-source}</maven.compiler.source>
+    <maven.compiler.target>${maven-compiler-target}</maven.compiler.target>
+    <clojure.version>${clojure-version}</clojure.version>
+    <exec.maven.version>${exec-maven-version}</exec.maven.version>
+    <commons-codec.version>${commons-codec-version}</commons-codec.version>
+    <core.async.version>${core-async-version}</core.async.version>
+    <clojure.scripts.dir>.clojure/scripts</clojure.scripts.dir>
+    <clojure.opts.dir>.clojure/opts</clojure.opts.dir>
+    <clojure.source.dir>src/main/clojure</clojure.source.dir>
+    <clojure.test.dir>src/test/clojure</clojure.test.dir>
   </properties>
 
   <dependencies>
@@ -21,35 +29,34 @@
       <groupId>org.clojure</groupId>
       <artifactId>clojure</artifactId>
       <version>${clojure.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-codec</groupId>
+          <artifactId>commons-codec</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>${commons-codec.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.clojure</groupId>
+      <artifactId>core.async</artifactId>
+      <version>${core.async.version}</version>
     </dependency>
   </dependencies>
 
-  <repositories>
-    <repository>
-      <id>clojars.org</id>
-      <url>https://repo.clojars.org</url>
-    </repository>
-  </repositories>
-
   <build>
-    <sourceDirectory>${basedir}/src/main/clojure</sourceDirectory>
-    <testSourceDirectory>${basedir}/src/test/clojure</testSourceDirectory>
+    <sourceDirectory>${basedir}/${clojure.source.dir}</sourceDirectory>
+    <testSourceDirectory>${basedir}/${clojure.test.dir}</testSourceDirectory>
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>3.2.0</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.2.0</version>
-        </plugin>
-        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>exec-maven-plugin</artifactId>
-          <version>1.6.0</version>
+          <version>${exec.maven.version}</version>
           <configuration>
             <mainClass>clojure.main</mainClass>
           </configuration>
@@ -62,7 +69,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>clojure-bat</id>
+            <id>clj</id>
             <configuration>
               <systemProperties>
                 <systemProperty>
@@ -76,7 +83,6 @@
               </systemProperties>
               <additionalClasspathElements>
                 <additionalClasspathElement>${project.build.sourceDirectory}</additionalClasspathElement>
-                <additionalClasspathElement>${project.build.outputDirectory}</additionalClasspathElement>
                 <additionalClasspathElement>${project.basedir}</additionalClasspathElement>
               </additionalClasspathElements>
               <commandlineArgs>${clojure.args}</commandlineArgs>
@@ -86,7 +92,8 @@
             </goals>
           </execution>
           <execution>
-            <id>compile-clojure</id>
+            <?m2e ignore?>
+            <id>clj-compile</id>
             <phase>compile</phase>
             <configuration>
               <systemProperties>
@@ -101,7 +108,7 @@
               </systemProperties>
               <additionalClasspathElements>
                 <additionalClasspathElement>${project.build.sourceDirectory}</additionalClasspathElement>
-                <additionalClasspathElement>${project.build.outputDirectory}</additionalClasspathElement>
+                <additionalClasspathElement>${project.build.testSourceDirectory}</additionalClasspathElement>
                 <additionalClasspathElement>${project.basedir}</additionalClasspathElement>
               </additionalClasspathElements>
               <arguments>
@@ -113,7 +120,8 @@
             </goals>
           </execution>
           <execution>
-            <id>test-clojure</id>
+            <?m2e ignore?>
+            <id>clj-test</id>
             <phase>test</phase>
             <configuration>
               <mainClass>clojure.main</mainClass>
@@ -129,9 +137,7 @@
               </systemProperties>
               <additionalClasspathElements>
                 <additionalClasspathElement>${project.build.sourceDirectory}</additionalClasspathElement>
-                <additionalClasspathElement>${project.build.outputDirectory}</additionalClasspathElement>
                 <additionalClasspathElement>${project.build.testSourceDirectory}</additionalClasspathElement>
-                <additionalClasspathElement>${project.build.testOutputDirectory}</additionalClasspathElement>
                 <additionalClasspathElement>${project.basedir}</additionalClasspathElement>
               </additionalClasspathElements>
               <arguments>
@@ -143,27 +149,6 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <configuration>
-          <show>private</show>
-          <nohelp>true</nohelp>
-        </configuration>
       </plugin>
     </plugins>
   </build>

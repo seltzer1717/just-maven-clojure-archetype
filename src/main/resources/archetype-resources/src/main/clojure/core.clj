@@ -3,5 +3,5 @@
 #set( $symbol_escape = '\' )
 (ns ${package}.core)
 
-(defn foo []
-  "bar")
+(defn reverso [input]
+  (->> input reverse (apply str)))
