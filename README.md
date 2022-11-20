@@ -1,7 +1,7 @@
 # just-maven-clojure-archetype
 An archetype, for Clojure projects, that requires only Maven.
 
-## Current 0.2-RELEASE
+## Current 0.3-RELEASE
 ```
   <groupId>cloud.seltzer1717.clojure</groupId>
   <artifactId>just-maven-clojure-archetype</artifactId>
