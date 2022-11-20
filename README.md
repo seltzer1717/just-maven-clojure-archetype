@@ -5,7 +5,7 @@ An archetype, for Clojure projects, that requires only Maven.
 ```
   <groupId>cloud.seltzer1717.clojure</groupId>
   <artifactId>just-maven-clojure-archetype</artifactId>
-  <version>0.2-RELEASE</version>
+  <version>0.3-RELEASE</version>
 ```
 
 ## License
@@ -162,7 +162,7 @@ jelly-donuts
 ```
 # Compiling, Testing, and Running Clojure
 Maven is initiated with the `mvn` CLI command.
-Navigate to your artifactId folder (e.g. cranberry-fizzy-juice)
+Navigate to your artifactId folder (e.g. jelly-donuts)
 ## Starting a Clojure REPL
 - `mvn exec:java@clj`
 ## Compiling Clojure source main
@@ -181,6 +181,9 @@ Navigate to your artifactId folder (e.g. cranberry-fizzy-juice)
   - Runs tests
   - installs (installs library jar in your local .m2 repository)
   - Can also run 'quietly' `mvn -q clean install`
+  - The goal here is to make using Clojure almost completely transparent.
+    - You code in Clojure and everything else, including Maven, is exactly like Java.
+- All other Maven commands apply.
 ## Too Many Key Strokes
 - Create shell scripts
 - `clj.bat` starts a Clojure REPL
@@ -235,7 +238,6 @@ Navigate to your artifactId folder (e.g. cranberry-fizzy-juice)
                            forward-slash         (.replaceAll without-suffix "\\\\" "/")
                            underscores-to-dashes (.replaceAll forward-slash "_" "-")
                            source-namespace      (.replaceAll underscores-to-dashes "/" ".")]
-                       (load forward-slash)
                        (compile (symbol source-namespace))))))
            FileVisitResult/CONTINUE)))
 
@@ -263,10 +265,8 @@ Navigate to your artifactId folder (e.g. cranberry-fizzy-juice)
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <clojure.version>1.10.2</clojure.version>
+    <clojure.version>1.11.1</clojure.version>
     <exec.maven.version>3.0.0</exec.maven.version>
-    <commons-codec.version>1.15</commons-codec.version>
-    <core.async.version>1.5.640</core.async.version>
     <clojure.scripts.dir>.clojure/scripts</clojure.scripts.dir>
     <clojure.opts.dir>.clojure/opts</clojure.opts.dir>
     <clojure.source.dir>src/main/clojure</clojure.source.dir>
@@ -403,7 +403,6 @@ Navigate to your artifactId folder (e.g. cranberry-fizzy-juice)
 - Packaging is `jar` just like a normal Java project. `pom` packaging allows us to create Clojure packaging during the Maven project lifecycle.
 - Almost everything is defined as a property in the `properties` section. This makes it easier to change `version`s, paths, main namespaces in one place, rather than having to search the entire `pom.xml` file to make an update.
 - The `dependencies` start with Clojure.
-- Then `core.async` to support asynchronous JavaScript.
 ## The Maven `build` Section
 - `pluginManagement` is generally only needed if you'll use the `pom.xml` file as a parent pom for another project or `plugins` section of current pom.
   - It defines the coordinates for the  build plugins that will be used, including the `version`s, but does not have the specific build `configurations` that we'll discuss below.
@@ -427,8 +426,9 @@ Navigate to your artifactId folder (e.g. cranberry-fizzy-juice)
 - Ths execution just compiles the Clojure source code.
 ## The `clj-test` Execution
 - This execution executes all the test namespaces.
-# General Archetype for `node` Projects
-- This archetype is create a vanilla Clojure library project.
+# General Archetype for `Java` Projects
+- This archetype creates a vanilla Clojure library project.
 - There are other cloud.seltzer1717 archetypes you might find useful:
   - `just-maven-clojurescript-archetype` for ClojureScript projects
+  - `just-maven-clojurescript-aws-lambda-archetype` for ClojureScript projects
 - The idea is for **YOU** to customize your own `pom.xml` file in a way that best suites your needs.

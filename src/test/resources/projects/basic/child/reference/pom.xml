@@ -11,10 +11,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <clojure.version>1.10.2</clojure.version>
+    <clojure.version>1.11.1</clojure.version>
     <exec.maven.version>3.0.0</exec.maven.version>
-    <commons-codec.version>1.15</commons-codec.version>
-    <core.async.version>1.5.640</core.async.version>
     <clojure.scripts.dir>.clojure/scripts</clojure.scripts.dir>
     <clojure.opts.dir>.clojure/opts</clojure.opts.dir>
     <clojure.source.dir>src/main/clojure</clojure.source.dir>
@@ -26,22 +24,6 @@
       <groupId>org.clojure</groupId>
       <artifactId>clojure</artifactId>
       <version>${clojure.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-codec</groupId>
-          <artifactId>commons-codec</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>commons-codec</groupId>
-      <artifactId>commons-codec</artifactId>
-      <version>${commons-codec.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>core.async</artifactId>
-      <version>${core.async.version}</version>
     </dependency>
   </dependencies>
 

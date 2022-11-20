@@ -40,7 +40,6 @@
                            forward-slash         (.replaceAll without-suffix "\\\\" "/")
                            underscores-to-dashes (.replaceAll forward-slash "_" "-")
                            source-namespace      (.replaceAll underscores-to-dashes "/" ".")]
-                       (load forward-slash)
                        (compile (symbol source-namespace))
                        (let [test-results (test/run-tests (symbol source-namespace))]
                          (if (> (:fail test-results) 0)

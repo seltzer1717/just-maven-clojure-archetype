@@ -16,8 +16,6 @@
     <maven.compiler.target>${maven-compiler-target}</maven.compiler.target>
     <clojure.version>${clojure-version}</clojure.version>
     <exec.maven.version>${exec-maven-version}</exec.maven.version>
-    <commons-codec.version>${commons-codec-version}</commons-codec.version>
-    <core.async.version>${core-async-version}</core.async.version>
     <clojure.scripts.dir>.clojure/scripts</clojure.scripts.dir>
     <clojure.opts.dir>.clojure/opts</clojure.opts.dir>
     <clojure.source.dir>src/main/clojure</clojure.source.dir>
@@ -29,22 +27,6 @@
       <groupId>org.clojure</groupId>
       <artifactId>clojure</artifactId>
       <version>${clojure.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-codec</groupId>
-          <artifactId>commons-codec</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>commons-codec</groupId>
-      <artifactId>commons-codec</artifactId>
-      <version>${commons-codec.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>core.async</artifactId>
-      <version>${core.async.version}</version>
     </dependency>
   </dependencies>
 

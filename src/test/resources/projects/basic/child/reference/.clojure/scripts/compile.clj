@@ -38,7 +38,6 @@
                            forward-slash         (.replaceAll without-suffix "\\\\" "/")
                            underscores-to-dashes (.replaceAll forward-slash "_" "-")
                            source-namespace      (.replaceAll underscores-to-dashes "/" ".")]
-                       (load forward-slash)
                        (compile (symbol source-namespace))))))
            FileVisitResult/CONTINUE)))
 

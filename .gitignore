@@ -2,3 +2,6 @@
 .vscode
 target
 .project
+gpg.txt
+env17.bat
+sign

@@ -8,13 +8,7 @@
       <defaultValue>17</defaultValue>
     </requiredProperty>
     <requiredProperty key="clojure-version">
-      <defaultValue>1.10.2</defaultValue>
-    </requiredProperty>
-    <requiredProperty key="commons-codec-version">
-      <defaultValue>1.15</defaultValue>
-    </requiredProperty>
-    <requiredProperty key="core-async-version">
-      <defaultValue>1.5.640</defaultValue>
+      <defaultValue>1.11.1</defaultValue>
     </requiredProperty>
     <requiredProperty key="exec-maven-version">
       <defaultValue>3.0.0</defaultValue>
