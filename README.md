@@ -57,7 +57,7 @@ https://www.eclipse.org/legal/epl-v10.html
 mvn archetype:generate ^
 -DarchetypeGroupId=cloud.seltzer1717.clojure ^
 -DarchetypeArtifactId=just-maven-clojure-archetype ^
--DarchetypeVersion=0.2-RELEASE
+-DarchetypeVersion=0.3-RELEASE
 ```
 The output looks something like this (it's interactive). If you say `N` at the `<--- FINAL PROMPT --->`, you can specify all the property values, including values for dependency versions as seen below:
 
