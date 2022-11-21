@@ -135,30 +135,28 @@ jelly-donuts
 |   pom.xml
 |
 +---.clojure
-|   |
 |   \---scripts
 |           compile.clj
 |           test.clj
 |
-\---src
-    +---main
-    |   +---clojure
-    |   |   \---com
-    |   |       \---example
-    |   |               core.cljs
-    |   |
-    |   \---resources
-    |           required_for_test.txt
-    |
-    \---test
-        +---Clojure
-        |   \---com
-        |       \---example
-        |               core_test.cljs
-        |               test_suite.cljs
-        |
-        \---resources
-                required_for_test.txt
++---src
+|   +---main
+|   |   +---clojure
+|   |   |   \---cloud
+|   |   |       \---seltzer1717       
+|   |   |               core.clj      
+|   |   |
+|   |   \---resources
+|   |           required_for_test.txt 
+|   |
+|   \---test
+|       +---clojure
+|       |   \---cloud
+|       |       \---seltzer1717
+|       |               core_test.clj
+|       |
+|       \---resources
+|               required_for_test.txt
 ```
 # Compiling, Testing, and Running Clojure
 Maven is initiated with the `mvn` CLI command.
