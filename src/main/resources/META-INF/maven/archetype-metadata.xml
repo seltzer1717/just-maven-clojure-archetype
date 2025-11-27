@@ -8,7 +8,7 @@
       <defaultValue>17</defaultValue>
     </requiredProperty>
     <requiredProperty key="clojure-version">
-      <defaultValue>1.11.1</defaultValue>
+      <defaultValue>1.12.3</defaultValue>
     </requiredProperty>
     <requiredProperty key="exec-maven-version">
       <defaultValue>3.0.0</defaultValue>
