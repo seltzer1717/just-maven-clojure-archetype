@@ -11,7 +11,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <clojure.version>1.11.1</clojure.version>
+    <clojure.version>1.11.2</clojure.version>
     <exec.maven.version>3.0.0</exec.maven.version>
     <clojure.scripts.dir>.clojure/scripts</clojure.scripts.dir>
     <clojure.opts.dir>.clojure/opts</clojure.opts.dir>
